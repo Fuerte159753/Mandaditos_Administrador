@@ -1,31 +1,66 @@
-<!-- resources/views/admin/inicio.blade.php -->
-
 @extends('layouts.admin_layout')
-
 @section('title', 'Inicio')
-
 @section('content')
-<!--aqui va el contenido de la pagina -->
-    <h1 class="mt-4">Bienvenido al panel de administración</h1>
+     <center>   <h1 class="mt-4">Bienvenido al panel de administración</h1>
     <p>Revisa algunas estadisticas de la aplicacion 😉.</p>
+    <br><br>
     <div class="content-grande" style="display: flex">
+        
         <div class="content-int" style="width: 50%">
-            <span style="color: green">1</span>
-            <p>pedidos realizados el dia de hoy</p>
+            <div style="text-align: center">
+                <div style="height: 100px; width:auto;">
+                    <a href="" style="text-decoration: none">
+                        <span style="color: green; font-size: 500%">0</span>
+                    </a>
+                </div>
+                <div>
+                    <p>Pedidos realizados hoy</p>
+                </div>
+            </div>
         </div>
+
         <div class="content-int" style="width: 50%">
-            <span style="color: yellow">2</span>
-            <p>pedidos pendientes de entrega</p>
+            <div style="text-align: center">
+                <div style="height: 100px; width:auto;">
+                    <a href="" style="text-decoration: none">
+                        <span style="color: yellow; font-size: 500%">0</span>
+                    </a>
+                </div>
+                <div>
+                    <p>Pendientes de Entrega</p>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="content-grande" style="display: flex">
+
         <div class="content-int" style="width: 50%">
-            <span style="color: blue">1</span>
-            <p>Repartidores en ruta en estos momentos</p>
+            <div style="text-align: center">
+                <div style="height: 100px; width:auto;">
+                    <a href="" style="text-decoration: none">
+                        <span style="color: blue; font-size: 500%">0</span>
+                    </a>
+                </div>
+                <div>
+                    <p>Repartidores en ruta</p>
+                </div>
+            </div>
         </div>
+
+
         <div class="content-int" style="width: 50%">
-            <span style="color: red">3</span>
-            <p>Pedidos cancelados</p>
+            <div style="text-align: center">
+                <div style="height: 100px; width:auto;">
+                    <a href="" style="text-decoration: none">
+                        <span style="color: red; font-size: 500%">0</span>
+                    </a>
+                </div>
+                <div>
+                    <p>Pedidos Cancelados</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </div></center>
+<br><br>
 @endsection

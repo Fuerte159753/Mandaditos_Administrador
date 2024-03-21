@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'admin/clientes/*', // Aquí añades la ruta de tus solicitudes DELETE
     ];
 }

@@ -17,8 +17,8 @@ class Vendedor extends Model
     {
         return Validator::make($data, [
             'nombre_establecimiento' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:vendedores',
-            'correo' => 'required|string|email|max:255|unique:vendedores',
+            'username' => 'required|string|max:255|unique:vendedores,username,' . $data['id'] . ',id',	
+            'correo' => 'required|string|email|max:255|unique:vendedores,correo,' . $data['id'] . ',id',
             'contraseña' => 'required|string|min:8',
             'telefono' => 'nullable|string|max:255',
             'verificado' => 'required|boolean',

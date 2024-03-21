@@ -14,24 +14,37 @@ if (!$conn) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
-// Consulta SQL para obtener todas las contraseñas existentes
-$sql = "SELECT id, password FROM administradores";
-$result = mysqli_query($conn, $sql);
+// Agregar un nuevo administrador con la contraseña sin encriptar
+$insertSql = "INSERT INTO administradores (name, last_name, mother_last_name, phone, username, email, password) 
+              VALUES ('Alejandro Javier', 'Mayor', 'Martinez', '7721383124', 'alejavi569', 'alejavi569@gmail.com', '123456789')";
 
-if (mysqli_num_rows($result) > 0) {
-    // Actualizar cada contraseña codificándola con Bcrypt
-    while ($row = mysqli_fetch_assoc($result)) {
-        $hashedPassword = password_hash($row['password'], PASSWORD_BCRYPT);
-        $updateSql = "UPDATE administradores SET password = '" . $hashedPassword . "' WHERE id = " . $row['id'];
-        if (mysqli_query($conn, $updateSql)) {
-            echo "Contraseña actualizada correctamente para el ID " . $row['id'] . "<br>";
-        } else {
-            echo "Error al actualizar la contraseña para el ID " . $row['id'] . ": " . mysqli_error($conn) . "<br>";
-        }
+if (mysqli_query($conn, $insertSql)) {
+    echo "Nuevo administrador agregado correctamente.<br>";
+    
+    // Obtener el ID del nuevo administrador insertado
+    $newAdminId = mysqli_insert_id($conn);
+    
+    // Consultar la contraseña sin encriptar
+    $sql = "SELECT password FROM administradores WHERE id = $newAdminId";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $password = $row['password'];
+    
+    // Encriptar la contraseña
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    
+    // Actualizar la contraseña encriptada en la base de datos
+    $updateSql = "UPDATE administradores SET password = '$hashedPassword' WHERE id = $newAdminId";
+    if (mysqli_query($conn, $updateSql)) {
+        echo "Contraseña encriptada correctamente para el nuevo administrador.<br>";
+    } else {
+        echo "Error al encriptar la contraseña: " . mysqli_error($conn) . "<br>";
     }
+    
 } else {
-    echo "No se encontraron contraseñas en la tabla 'administradores'.";
+    echo "Error al agregar el nuevo administrador: " . mysqli_error($conn) . "<br>";
 }
 
 // Cerrar la conexión
 mysqli_close($conn);
+?>

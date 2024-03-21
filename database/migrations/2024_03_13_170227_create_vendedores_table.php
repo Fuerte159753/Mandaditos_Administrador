@@ -20,7 +20,7 @@ class CreateVendedoresTable extends Migration
             $table->string('correo')->unique();
             $table->string('contraseña');
             $table->string('telefono')->nullable(); // Teléfono (puede ser nulo)
-            $table->tinyInteger('activo')->default(0); // Columna para verificación
+            $table->string('activo')->default(0); // Columna para verificación
             $table->string('codigo_verificacion')->nullable(); // Código de verificación
             $table->string('password_reset_token')->nullable(); // Token de restablecimiento de contraseña
             $table->timestamp('password_reset_token_expires_at')->nullable(); // Expiración del token de restablecimiento de contraseña

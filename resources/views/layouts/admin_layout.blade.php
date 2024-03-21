@@ -33,9 +33,9 @@
         .footer {
             text-align: center;
             margin-top: 20px;
-            background-color: #343a40; /* Color del navbar */
-            color: #ffffff; /* Color del texto */
-            padding: 10px 0; /* Añade un espacio alrededor del contenido del footer */
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -67,6 +67,7 @@
     <div class="container">
         @yield('content')
     </div>
+    
     <footer class="footer">
         <img src="{{ asset('resourses/iconpes.png') }}" alt="Icono" style="width: 50px; height: 50px;">
         <p>Mandaditos Xhate</p>
