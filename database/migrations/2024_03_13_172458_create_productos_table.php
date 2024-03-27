@@ -22,7 +22,7 @@ class CreateProductosTable extends Migration
             $table->decimal('precio', 8, 2);
             $table->decimal('descuento', 5, 2)->default(0);
             $table->string('imagen')->nullable();
-            $table->string('seccion')->nullable();
+            $table->string('categoria')->nullable();
             $table->timestamps();
         });
     }

@@ -168,7 +168,7 @@ class AdminController extends Controller
         $vendedores->telefono = $request->input('telefono');
         $vendedores->save();
 
-        //return redirect()->route('admin.repartidor')->with('success', 'Repartidor registrado correctamente');
+        return redirect()->route('admin.vendedores')->with('success', 'Vendedor registrado correctamente');
     }
     public function actuavendedor(Request $request, $id)
     {

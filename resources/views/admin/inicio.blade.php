@@ -1,7 +1,7 @@
 @extends('layouts.admin_layout')
 @section('title', 'Inicio')
 @section('content')
-     <center>   <h1 class="mt-4">Bienvenido al panel de administración</h1>
+   <h1 class="mt-4">Bienvenido al panel de administración</h1>
     <p>Revisa algunas estadisticas de la aplicacion 😉.</p>
     <br><br>
     <div class="content-grande" style="display: flex">
@@ -61,6 +61,6 @@
                 </div>
             </div>
         </div>
-    </div></center>
+    </div>
 <br><br>
 @endsection

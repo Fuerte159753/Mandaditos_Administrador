@@ -1,12 +1,13 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 @extends('layouts.admin_layout')
 @section('title', 'Repartidores')
 @section('content')
 <style>
     #btnAgregarRepartidor {
         position: fixed;
-        top: 25%;
-        right: 2%;
+        top: 20%;
+        right: 7%;
         z-index: 9999;
     }
     #btnAgregarRepartidor i {
@@ -198,7 +199,7 @@ $(document).ready(function() {
 </script>
 <!-- Modal Agregar Repartidor -->
 <div class="modal fade" id="modalAgregarRepartidor" tabindex="-1" aria-labelledby="modalAgregarRepartidorLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalAgregarRepartidorLabel">Agregar Repartidor</h5>
@@ -207,7 +208,7 @@ $(document).ready(function() {
             <form action="{{ route('admin.registrarRepartidor') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="mb-3">
+                    <div class="">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>

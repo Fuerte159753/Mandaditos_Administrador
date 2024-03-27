@@ -7,15 +7,15 @@
 <style>
     #btnAgregarRepartidor {
         position: fixed;
-        top: 25%;
-        right: 2%;
+        top: 20%;
+        right: 7%;
         z-index: 9999;
     }
     #btnAgregarRepartidor i {
         font-size: 200%;
     }
 </style>
-    <h1 class="mt-4">Repartidores</h1>
+    <h1 class="mt-4">vendedores</h1>
     <div style="width: 50%; margin: auto;">
         <div class="input-group input-group-sm">
             <span class="input-group-text" id="basic-addon1">
