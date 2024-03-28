@@ -155,7 +155,7 @@
         <a class="btn" href="{{route('loginadmin')}}">inicio de administrador</a>
         <a class="btn" href="{{route('loginvendedor')}}">Inicio de vendedor</a>
     </div>  
-    <div class="navigation">
+    <!--<div class="navigation">
         <ul>
             <li class="list active">
                 <a>
@@ -191,7 +191,7 @@
             </li>
             <div class="indicator"></div>
         </ul>
-    </div><!---->
+    </div>-->
     <script> 
     const list = document.querySelectorAll('.list');
     function activeLink(){;

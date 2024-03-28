@@ -9,9 +9,33 @@ use App\Models\Cliente;
 use App\Models\repartidor;
 use App\Models\Ruta;
 use App\Models\Vendedor;
+use App\Models\Pedido;
 
 class AdminController extends Controller
 {
+    public function inicio()
+    {
+        $fecha_actual = now()->format('d-m-y');
+        // Consulta para obtener la cantidad de pedidos realizados hoy y pendientes
+        $pedidos_realizados_hoy = Pedido::where('fecha_pedido', 'LIKE', "$fecha_actual%")->count();
+
+        $pedidos_pendientes_hoy = Pedido::where('fecha_pedido', 'LIKE', "$fecha_actual%")
+                                        ->where('estado_pedido', 'en espera')
+                                        ->count();
+        $pecanhoy = Pedido::where('fecha_pedido', 'LIKE', "$fecha_actual%")
+                                        ->where('estado_pedido', 'cancelado')
+                                        ->count();
+        $repartidoruta = Pedido::where('fecha_pedido', 'LIKE', "$fecha_actual%")
+                                        ->where('estado_pedido', 'pendiente')
+                                        ->count();
+
+        return view('admin.inicio', [
+            'pedidos_realizados_hoy' => $pedidos_realizados_hoy,
+            'pedidos_pendientes_hoy' => $pedidos_pendientes_hoy,
+            'pecanhoy' => $pecanhoy,
+            'repartidoruta' => $repartidoruta,
+        ]);    
+    } 
     public function showLoginForm()
     {
         return view('admin.login');
@@ -196,5 +220,11 @@ class AdminController extends Controller
             error_log('Error al eliminar el Vendedor: ' . $e->getMessage());
             return back()->withErrors(['error' => 'Error al eliminar el Vendedor: ' . $e->getMessage()]);
         }
+    }
+    //pedidos\\
+    public function pedidos()
+    {   
+        $pedidos = Pedido::all();
+        return view('admin.pedidos', ['pedidos' => $pedidos]);
     }
 }

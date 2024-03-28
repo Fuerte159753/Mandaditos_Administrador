@@ -49,7 +49,7 @@
             padding: 10px 0;
         }
         .container {
-            padding-right: 4%;
+            padding-left: 4%;
         }
         .off:hover {
             background-color: #00c36e;
@@ -57,13 +57,17 @@
         }
         .navbar{
             border-bottom: solid 1px rgb(121, 121, 121);
+            background-color: #343a40;
+        }
+        .navbar-brand{
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100vh; position: fixed; right: 0; top: 0; z-index: 1;">
-        <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-          <svg class="bi" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <div class="d-flex flex-column flex-shrink-0 bg-shadow" style="width: 4.5rem; height: 100vh; position: fixed; lefth: 0; top: 0; z-index: 1;">
+        <a class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+          <svg class="bi" width="30" height="32"><use xlink:href="#bootstrap"></use></svg>
           <span class="visually-hidden">Icon-only</span>
         </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
@@ -83,7 +87,10 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('admin.vendedores') }}" class="nav-link {{ request()->routeIs('admin.vendedores') ? 'active' : '' }} py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Vendedores">
+            <!--<a href="{{ route('admin.vendedores') }}" class="nav-link {{ request()->routeIs('admin.vendedores') ? 'active' : '' }} py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Vendedores">
+                <i class="bi bi-shop"></i>
+            </a>-->
+            <a href="{{ route('admin.pedidos') }}" class="nav-link {{ request()->routeIs('admin.pedidos') ? 'active' : '' }} py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Vendedores">
                 <i class="bi bi-shop"></i>
             </a>
           </li>
@@ -107,6 +114,9 @@
     
     
     <div class="container">
+        <!--<div class="alert alert-success" role="alert" style="width: 400px; text-aling: center;">
+            <center><i class="bi bi-check-circle"></i>     <span>     Se ha registrado un nuevo pedido</span> </center>
+        </div>-->
         @yield('content')
     </div>
     

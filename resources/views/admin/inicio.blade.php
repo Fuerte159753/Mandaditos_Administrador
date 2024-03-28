@@ -10,7 +10,7 @@
             <div style="text-align: center">
                 <div style="height: 100px; width:auto;">
                     <a href="" style="text-decoration: none">
-                        <span style="color: green; font-size: 500%">0</span>
+                        <span style="color: green; font-size: 500%">{{ $pedidos_realizados_hoy }}</span>
                     </a>
                 </div>
                 <div>
@@ -23,7 +23,7 @@
             <div style="text-align: center">
                 <div style="height: 100px; width:auto;">
                     <a href="" style="text-decoration: none">
-                        <span style="color: yellow; font-size: 500%">0</span>
+                        <span style="color: yellow; font-size: 500%">{{$pedidos_pendientes_hoy}}</span>
                     </a>
                 </div>
                 <div>
@@ -39,7 +39,7 @@
             <div style="text-align: center">
                 <div style="height: 100px; width:auto;">
                     <a href="" style="text-decoration: none">
-                        <span style="color: blue; font-size: 500%">0</span>
+                        <span style="color: blue; font-size: 500%">{{$repartidoruta}}</span>
                     </a>
                 </div>
                 <div>
@@ -53,7 +53,7 @@
             <div style="text-align: center">
                 <div style="height: 100px; width:auto;">
                     <a href="" style="text-decoration: none">
-                        <span style="color: red; font-size: 500%">0</span>
+                        <span style="color: red; font-size: 500%">{{$pecanhoy}}</span>
                     </a>
                 </div>
                 <div>

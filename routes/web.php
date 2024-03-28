@@ -18,7 +18,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login'); // Ruta para mostrar el formulario de inicio de sesión
     Route::post('/login', [AdminController::class, 'login']);// Ruta para procesar el inicio de sesión
 
-    Route::get('/inicio', function () {return view('admin.inicio');})->name('admin.inicio');
+    Route::get('/inicio', [AdminController::class, 'inicio'])->name('admin.inicio');
     // Ruta para la página de inicio del administrador
     Route::get('/clientes', [AdminController::class, 'clientes'])->name('admin.clientes');
     Route::put('/clientes/{cliente_id}', [AdminController::class, 'actualizarCliente'])->name('admin.actualizarCliente');
@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/Vendedores/{id}/eliminar', [AdminController::class, 'eliminarVendedor'])->name('admin.eliminarVendedor');
     //rutas para el perfil
     Route::get('/perfil',function(){return view('admin.perfil');})->name('admin.perfil');
+    Route::get('/pedidos', [AdminController::class, 'pedidos'])->name('admin.pedidos');
 });
 
 //todo esto dentro de vendedor
